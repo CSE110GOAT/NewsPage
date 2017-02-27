@@ -7,6 +7,9 @@ import {
   View,
   ScrollView,
   Image,
+  WebView,
+  Linking,
+  TouchableOpacity
 } from 'react-native'
 
 const Dimensions = require('Dimensions');
@@ -20,21 +23,37 @@ export default class Article extends Component {
         source: "UCSD Athletics",
         time: "12:00 PM",
         headline: "UCSD Goes D1!",
-        summary: "UCSD students vote to go D1"
+        summary: "UCSD students vote to go D1",
+        url: 'http://www.ucsdtritons.com/ViewArticle.dbml?DB_OEM_ID=5800&ATCLID=211501690'
     }
   }
+    
+  handleClick = () => {
+    Linking.canOpenURL(this.state.url).then(supported => {
+      if (supported) {
+        Linking.openURL(this.state.url);
+      } else {
+        console.log('Don\'t know how to open URI: ' + this.state.url);
+      }
+    });
+  };
+    
+    
   render() {
     return (
-      <View>
-        <Text style={styles.sport}>Posted by {this.state.source} at {this.state.time}</Text>
-        <View style={styles.container}>
-          <View style={styles.logo_item}>
-            <Image source={require('./home_bar_icons/basketball.jpg')} style={styles.logo}/>
-            <Text>{"\t\t"}</Text>
+      <TouchableOpacity
+        onPress={this.handleClick}>
+        <View>
+          <Text style={styles.sport}>Posted by {this.state.source} at {this.state.time}</Text>
+          <View style={styles.container}>
+            <View style={styles.logo_item}>
+              <Image source={require('./home_bar_icons/basketball.jpg')} style={styles.logo}/>
+              <Text>{"\t\t"}</Text>
+            </View>
           </View>
+          <Text style={styles.sport}>{this.state.headline}{"\n"}{this.state.summary}</Text>
         </View>
-            <Text style={styles.sport}>{this.state.headline}{"\n"}{this.state.summary}</Text>
-      </View>
+      </TouchableOpacity>
     );
   }
 }

@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-import { AppRegistry, Text, ScrollView, View, StyleSheet, Image } from 'react-native';
+import { AppRegistry, Text, ScrollView, View, StyleSheet, Image, WebView, Linking, TouchableOpacity } from 'react-native';
 import Header from './Header';
 import Article from './Article';
 
