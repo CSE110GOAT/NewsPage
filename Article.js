@@ -19,7 +19,7 @@ export default class Article extends Component {
   constructor(){
     super()
     this.state = {
-        picture: './home_bar_icons/basketball.jpg',
+        picture: require('./home_bar_icons/basketball.jpg'),
         source: "UCSD Athletics",
         time: "12:00 PM",
         headline: "UCSD Goes D1!",
@@ -47,7 +47,7 @@ export default class Article extends Component {
           <Text style={styles.sport}>  Posted by {this.state.source} at {this.state.time}</Text>
           <View style={styles.container}>
             <View style={styles.logo_item}>
-              <Image source={{uri: this.state.picture}} style={styles.logo}/>
+              <Image source={this.state.picture} style={styles.logo}/>
 
             </View>
           </View>
