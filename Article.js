@@ -44,14 +44,14 @@ export default class Article extends Component {
       <TouchableOpacity
         onPress={this.handleClick}>
         <View>
-          <Text style={styles.sport}>Posted by {this.state.source} at {this.state.time}</Text>
+          <Text style={styles.sport}>  Posted by {this.state.source} at {this.state.time}</Text>
           <View style={styles.container}>
             <View style={styles.logo_item}>
-              <Image source={require('./home_bar_icons/basketball.jpg')} style={styles.logo}/>
-              <Text>{"\t\t"}</Text>
+              <Image source={{uri: this.state.picture}} style={styles.logo}/>
+
             </View>
           </View>
-          <Text style={styles.sport}>{this.state.headline}{"\n"}{this.state.summary}</Text>
+          <Text style={styles.sport}>  {this.state.headline}{"\n"}  {this.state.summary}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -112,6 +112,8 @@ const styles = StyleSheet.create({
     width: window.width,
     height: window.height/3 - 15,
     resizeMode: 'contain',
+    borderColor: 'grey',
+    borderWidth: 0,
     justifyContent: 'flex-start'
   }
 });

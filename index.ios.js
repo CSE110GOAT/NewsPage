@@ -25,41 +25,40 @@ class HelloWorldApp extends Component {
                     <Article/>
                 </ScrollView>
                 
-                <View style={{flex: 1}}>
-                    <View style={{
+
+                <View style={{
                     flex: 1,
                     flexDirection: 'row',
                     justifyContent: 'space-around',
                     alignItems: 'flex-end'
-                    }}>
+                }}>
                 
-                        <View style={styles.home_icon}>
-                            <Image
-                            source={require('./home_bar_icons/home.png')}
-                            style={styles.home_pic}
-                            />
-                        </View>
-                
-                        <View style={styles.home_icon}>
-                            <Image
-                            source={require('./home_bar_icons/magnifying_glass.png')}
-                            style={styles.home_pic}
-                            />
-                        </View>
-                
-                        <View style={styles.home_icon}>
-                            <Image
-                            source={require('./home_bar_icons/social.png')}
-                            style={styles.home_pic}
-                            />
-                        </View>
-                
-                        <View style={styles.home_icon}>
-                            <Image
-                            source={require('./home_bar_icons/news.png')}
-                            style={styles.home_pic}
-                            />
-                        </View>
+                    <View style={styles.home_icon}>
+                        <Image
+                        source={require('./home_bar_icons/home.png')}
+                        style={styles.home_pic}
+                        />
+                    </View>
+            
+                    <View style={styles.home_icon}>
+                        <Image
+                        source={require('./home_bar_icons/magnifying_glass.png')}
+                        style={styles.home_pic}
+                        />
+                    </View>
+            
+                    <View style={styles.home_icon}>
+                        <Image
+                        source={require('./home_bar_icons/social.png')}
+                        style={styles.home_pic}
+                        />
+                    </View>
+            
+                    <View style={styles.curr_icon}>
+                        <Image
+                        source={require('./home_bar_icons/news.png')}
+                        style={styles.home_pic}
+                        />
                     </View>
                 </View>
             </View>
@@ -107,9 +106,21 @@ const styles = StyleSheet.create({
                                  backgroundColor: 'white',
                                  borderColor: 'gainsboro',
                                  borderTopWidth: 0.5,
-                                 borderRightWidth: 0,
-                                 borderLeftWidth: 0,
+                                 borderRightWidth: 1,
+                                 borderLeftWidth: 1,
                                  borderBottomWidth: 0,
+                                 justifyContent: 'center'
+                                 },
+                                 
+                                 curr_icon: {
+                                 width: window.width/4,
+                                 height: window.width/4 - 45,
+                                 backgroundColor: 'white',
+                                 borderColor: 'grey',
+                                 borderTopWidth: 1,
+                                 borderRightWidth: 1,
+                                 borderLeftWidth: 2,
+                                 borderBottomWidth: 1,
                                  justifyContent: 'center'
                                  },
                                  
