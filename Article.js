@@ -1,3 +1,4 @@
+'use strict';
 
 import React, { Component } from 'react'
 import {
@@ -11,6 +12,16 @@ import {
   Linking,
   TouchableOpacity
 } from 'react-native'
+
+const firebase = require('firebase');
+
+const firebaseConfig = {
+apiKey: "AIzaSyBZDWWw9oGKK9HR-_6zn3_6D8NWwVu39Fw",
+authDomain: "goatbackend110.firebaseapp.com",
+databaseURL: "https://goatbackend110.firebaseio.com",
+storageBucket: "goatbackend110.appspot.com",
+};
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const Dimensions = require('Dimensions');
 const window = Dimensions.get('window');
