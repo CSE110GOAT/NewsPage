@@ -1,4 +1,4 @@
-import * as firebase from 'firebase';
+
 import React, { Component } from 'react'
 import {
   AppRegistry,
@@ -37,7 +37,6 @@ export default class Article extends Component {
       }
     });
   };
-    
     
   render() {
     return (
@@ -118,4 +117,4 @@ const styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('Game', () => Game);
+AppRegistry.registerComponent('Article', () => Article);
