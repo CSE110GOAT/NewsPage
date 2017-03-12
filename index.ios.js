@@ -5,11 +5,10 @@ import { AppRegistry, Text, ScrollView, View, StyleSheet, Image, WebView, Linkin
 import Header from './Header';
 import Article from './Article';
 
-
 const Dimensions = require('Dimensions');
 const window = Dimensions.get('window');
 
-class HelloWorldApp extends Component {
+class News_Page extends Component {
     render() {
         return (
             <View style={{flex: 1}}>
@@ -132,4 +131,4 @@ const styles = StyleSheet.create({
 
                                  });
 
-AppRegistry.registerComponent('FirstProject', () => HelloWorldApp);
+AppRegistry.registerComponent('FirstProject', () => News_Page);
