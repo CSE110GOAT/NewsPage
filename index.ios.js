@@ -1,15 +1,70 @@
-'use strict';
+//'use strict';
 
-import React, { Component } from 'react';
-import { AppRegistry, Text, ScrollView, View, StyleSheet, Image, WebView, Linking, TouchableOpacity } from 'react-native';
+import React, { Component, PropTypes } from 'react';
+import { AppRegistry, Text, ScrollView, View, StyleSheet, Image, WebView, Linking, TouchableOpacity, TouchableHighlight, TabBarIOS } from 'react-native';
 import Header from './Header';
 import Article from './Article';
 
 const Dimensions = require('Dimensions');
 const window = Dimensions.get('window');
 
-class News_Page extends Component {
+
+export default class News_Page extends Component {
+    constructor(){
+        super()
+        this.state = {
+            time : [],
+            url : [],
+            headline : [],
+            picture: [],
+            source: [],
+        }
+        
+        
+        {this.getArticledata()}
+    }
+    
+    
+    getArticledata() {
+        fetch('https://goatbackend110.appspot.com/static/news.json')
+        .then((response) => response.json())
+        .then((responseJson) => {
+              responseJson = responseJson.articles;
+            //var size =  Object.keys(responseJson.articles).length
+            for(var i = 0; i < 49 ; i++){
+              var oneArticle = responseJson[String(i)];
+              this.setState({
+                    time: this.state.time.concat([oneArticle[2]]),
+                    source: this.state.source.concat(["UCSD Athletics"]),
+                    url: this.state.url.concat(['http://' + oneArticle[0]]),
+                    headline: this.state.headline.concat([oneArticle[1]]),
+                    picture: this.state.picture.concat(['https://goatbackend110.appspot.com/static/news/' + i + '.png']),
+              })
+            }
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+    
+    
     render() {
+        var listarticles = []
+        
+        for(var i = 0; i < 49; i++) {
+            listarticles.push(
+                <View>
+                    <Article
+                        time = {this.state.time[i]}
+                        source = {this.state.source[i]}
+                        picture = {this.state.picture[i]}
+                        url = {this.state.url[i]}
+                        headline = {this.state.headline[i]}
+                    />
+                </View>
+            );
+        }
+              
         return (
             <View style={{flex: 1}}>
                 <View style = {styles.head}>
@@ -17,11 +72,7 @@ class News_Page extends Component {
                 </View>
                 
                 <ScrollView>
-                    <Article/>
-                    <Article/>
-                    <Article/>
-                    <Article/>
-                    <Article/>
+                    {listarticles}
                 </ScrollView>
                 
 
